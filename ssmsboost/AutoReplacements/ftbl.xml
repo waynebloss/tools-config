@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-16"?>
+<AutoReplacement xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Token>ftbl</Token>
+  <Name>Find Table</Name>
+  <CaseSensitive>false</CaseSensitive>
+  <SelectReplacement>false</SelectReplacement>
+  <Replacement>-- Find Tables
+SELECT sch.name as [Schema], tbl.name as Name, tbl.[max_column_id_used] as [Columns], tbl.[type_desc] as [Type], tbl.[object_id]
+FROM sys.tables tbl
+INNER JOIN sys.schemas sch ON tbl.[schema_id] = sch.[schema_id]
+WHERE -- tbl.[type] = 'U' AND
+	tbl.name like '%#%'
+ORDER BY tbl.name
+
+</Replacement>
+  <CursorPositionMarker>#</CursorPositionMarker>
+</AutoReplacement>

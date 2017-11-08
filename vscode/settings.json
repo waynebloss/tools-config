@@ -1,0 +1,48 @@
+// Place your settings in this file to overwrite the default settings
+{
+    // Updates
+    "update.channel": "none",
+    "extensions.autoUpdate": false,
+    // Editor
+    "editor.minimap.enabled": false,
+    "editor.tabSize": 2,
+    // Workbench
+    "workbench.editor.enablePreview": false,
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    // Window
+    "window.autoDetectHighContrast": false,
+    "window.restoreWindows": "none",
+    "window.zoomLevel": 0,
+    // Files
+    "files.eol": "\n",
+    "files.hotExit": "off",
+    // File Explorer
+    "explorer.autoReveal": false,
+    "explorer.openEditors.visible": 0,
+    // Git
+    "git.enabled": false,
+    // JSHint
+    // "jshint.enable": false,
+    // "jshint.options": {
+    //   "esversion": 5
+    // },
+    // Search
+    "search.exclude": {
+      "**/node_modules": true,
+      "**/bower_components": true,
+      "**/public": true,
+      "**/.cache": true,
+      "**/build": true
+    },
+    // Telemetry
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false,
+    "workbench.colorTheme": "Visual Studio Dark",
+    // "java.errors.incompleteClasspath.severity": "ignore",
+    // TypeScript
+    "javascript.validate.enable": false,
+    "typescript.validate.enable": false,
+    "typescript.tsserver.log": "off",
+    "typescript.tsserver.trace": "off"
+    // "workbench.iconTheme": "vscode-icons"
+  }

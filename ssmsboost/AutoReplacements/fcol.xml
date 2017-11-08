@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-16"?>
+<AutoReplacement xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Token>fcol</Token>
+  <Name>Find Column</Name>
+  <CaseSensitive>false</CaseSensitive>
+  <SelectReplacement>false</SelectReplacement>
+  <Replacement>-- Find Columns
+SELECT tbl.name as TableName, col.is_identity as [Identity], col.name as Name, (CASE col.is_nullable WHEN 0 THEN '' WHEN 1 THEN 'NULL' ELSE '???' END) as [Nullable],
+typ.name as [Type], col.max_length as MaxLen, col.[precision] as [Precision], col.[scale] as [Scale], col.column_id as Num, col.[object_id]
+FROM sys.columns col INNER JOIN sys.tables tbl ON col.[object_id] = tbl.[object_id]
+INNER JOIN sys.types typ ON col.system_type_id = typ.system_type_id AND col.user_type_id = typ.user_type_id
+WHERE --tbl.name like '%%' AND col.is_nullable = 1 AND col.is_identity = 1 AND
+	col.name like '%#%'
+ORDER BY tbl.name, col.name
+
+</Replacement>
+  <CursorPositionMarker>#</CursorPositionMarker>
+</AutoReplacement>

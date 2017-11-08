@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<AutoReplacement xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Token>fproc</Token>
+  <Name>Find Procedure</Name>
+  <CaseSensitive>false</CaseSensitive>
+  <SelectReplacement>false</SelectReplacement>
+  <Replacement>SELECT sp.[name], OBJECT_DEFINITION(sp.[object_id]) as [definition]
+FROM sys.procedures sp
+WHERE 
+	--sp.name like '%%' AND
+	OBJECT_DEFINITION(sp.[object_id]) LIKE '%#%'
+</Replacement>
+  <CursorPositionMarker>#</CursorPositionMarker>
+</AutoReplacement>

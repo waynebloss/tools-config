@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-16"?>
+<AutoReplacement xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Token>fpk</Token>
+  <Name>Find PK</Name>
+  <CaseSensitive>false</CaseSensitive>
+  <SelectReplacement>false</SelectReplacement>
+  <Replacement>-- Find Primary Keys
+SELECT sch.name as [Schema], tbl.name as Name --,tbl.[max_column_id_used] as [Columns], tbl.[type_desc] as [Type], tbl.[object_id]
+,kc.name as [KeyName] --, kc.[type] as KeyType, kc.unique_index_id as KeyUniqueIndexId
+FROM sys.tables tbl INNER JOIN sys.schemas sch ON tbl.[schema_id] = sch.[schema_id]
+INNER JOIN sys.key_constraints kc ON tbl.[object_id] = kc.parent_object_id AND kc.name LIKE 'PK%'
+WHERE -- tbl.[type] = 'U' AND kc.name != 'PK_' + tbl.name AND tbl.name not like 'AspNet%' AND tbl.name not IN('__MigrationHistory', 'sysdiagrams') AND
+	tbl.name like '%#%'
+ORDER BY tbl.name
+
+
+</Replacement>
+  <CursorPositionMarker>#</CursorPositionMarker>
+</AutoReplacement>

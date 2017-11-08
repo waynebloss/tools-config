@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-16"?>
+<AutoReplacement xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Token>cfunc</Token>
+  <Name>CREATE FUNCTION</Name>
+  <CaseSensitive>false</CaseSensitive>
+  <SelectReplacement>false</SelectReplacement>
+  <Replacement>CREATE FUNCTION [dbo].[fn#]
+(
+	@p1 int
+)
+RETURNS int
+AS
+BEGIN
+	
+	RETURN 0;
+
+END
+</Replacement>
+  <CursorPositionMarker>#</CursorPositionMarker>
+</AutoReplacement>
